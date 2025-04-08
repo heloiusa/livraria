@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = 'http://localhost:3000/api'; // Atualize para sua API
-    const clienteModal = document.getElementById('userModal');
-    const clienteForm = document.getElementById('userForm');
+    const clienteModal = document.getElementById('clienteModal');
+    const clienteForm = document.getElementById('clienteForm');
     const addClienterBtn = document.getElementById('addClienteBtn');
     const modalTitle = document.getElementById('modalTitle');
     let editClienteId = null;
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para carregar clientes
     const loadClientes = async () => {
         const response = await fetch(`${apiUrl}/clientes`);
-        const users = await response.json();
+        const clientes = await response.json();
         const tableBody = document.querySelector('#clientesTable tbody');
         tableBody.innerHTML = '';
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Abrir modal para adicionar novo usuário
-    const openAddUserModal = () => {
+    const openAddClienteModal = () => {
         editClienteId = null;
         modalTitle.innerText = 'Adicionar Cliente';
         clienteForm.reset();
