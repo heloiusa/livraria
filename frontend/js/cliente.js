@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Adicionar eventos de edição e deleção
         document.querySelectorAll('.editClienteBtn').forEach(button => {
-            button.addEventListener('click', (e) => openEditUserModal(e.target.dataset.id));
+            button.addEventListener('click', (e) => openEditClienteModal(e.target.dataset.id));
         });
 
         document.querySelectorAll('.deleteClienteBtn').forEach(button => {
@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify(cliente)
         });
-        loadCliente();
+        loadClientes();
     };
 
     // Função para atualizar usuário
     const updateCliente = async (id, cliente) => {
-        await fetch(`${apiUrl}/users/${id}`, {
+        await fetch(`${apiUrl}/clientes/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('cpf').value = cliente.cpf;
         document.getElementById('password').value = ''; // Não exibir senha
 
-        userModal.style.display = 'block';
+        clienteModal.style.display = 'block';
     };
 
     // Abrir modal para adicionar novo usuário
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fechar modal ao clicar no "x"
     document.querySelector('.close').addEventListener('click', () => {
-        userModal.style.display = 'none';
+        clienteModal.style.display = 'none';
     });
 
     // Fechar modal ao clicar fora dele
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             await addCliente(clienteData);
         }
 
-        userModal.style.display = 'none';
+        clienteModal.style.display = 'none';
         loadClientes();
     });
 
