@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(plantation)
+            body: JSON.stringify(livro)
         });
         loadLivro();
     };
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editLivroId = id;
         modalTitleLivro.innerText = 'Editar Livro';
 
-        // Buscar os dados da plantação para preencher o modal
+        // Buscar os dados do livro para preencher o modal
         const response = await fetch(`${apiUrl}/livros/${id}`);
         if (response.status === 404) {
             console.error('Livro não encontrado');
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Abrir modal para adicionar novo livro
     const openAddLivroModal = async () => {
         editLivroId = null;
-        modalTitleLivro.innerText = 'Adicionar Plantação';
+        modalTitleLivro.innerText = 'Adicionar Livro';
         livroForm.reset();
         await loadClientes(); // Carrega os usuários sem pré-selecionar nenhum
         livroModal.style.display = 'block';
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadLivros();
     });
 
-    // Inicializando o carregamento de plantações e eventos
+    // Inicializando o carregamento de livros e eventos
     addLivroBtn.addEventListener('click', openAddLivroModal);
     loadLivros();
 });
