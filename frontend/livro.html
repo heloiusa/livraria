@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Plantações</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Clientes</a>
+        <a href="livro.html">Livros</a>
+    </nav>
+
+    <h1>Plantações Cadastradas</h1>
+    <button id="addLivroBtn">Adicionar Livro</button>
+
+    <table id="plantationsTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Responsável</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os livros serão listados aqui via JS -->
+        </tbody>
+    </table>
+
+    <!-- Modal para adicionar/editar livro -->
+    <div id="plantationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitlePlantation">Adicionar Livro</h2>
+            <form id="plantationForm">
+                <label for="namePlantation">Nome:</label>
+                <input type="text" id="namePlantation" name="name" required>
+
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" required>
+
+                <label for="value">Valor:</label>
+                <input type="text" id="description" name="valor" required>
+
+                <label for="responsible">Responsável:</label>
+                <select id="responsible" name="responsible" required>
+                    <!-- Os usuários serão carregados aqui via JS -->
+                </select>
+
+                <button type="submit" id="saveLivroBtn">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/livro.js"></script>
+</body>
+</html>

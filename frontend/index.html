@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Clientes</a>
+        <a href="livro.html">Livros</a>
+    </nav>
+
+    <h1>Clientes Cadastrados</h1>
+    <button id="addClienteBtn">Adicionar Cliente</button>
+
+    <table id="clientesTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os clientes serão listados aqui via JS -->
+        </tbody>
+    </table>
+
+    <!-- Modal para adicionar/editar cliente -->
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Adicionar Cliente</h2>
+            <form id="userForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="cpf">Perfil:</label>
+                <select id="cpf" name="cpf" required>
+                    <option value="admin">Admin</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" id="saveClienteBtn">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/cliente.js"></script>
+</body>
+</html>
