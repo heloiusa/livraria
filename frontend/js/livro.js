@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = 'http://localhost:3000/api'; // Atualize para o URL correto da sua API
-    const plantationModal = document.getElementById('plantationModal');
-    const plantationForm = document.getElementById('plantationForm');
-    const addPlantationBtn = document.getElementById('addPlantationBtn');
-    const modalTitlePlantation = document.getElementById('modalTitleLivro');
-    let editPlantationId = null;
+    const livroModal = document.getElementById('livroModal');
+    const livroForm = document.getElementById('livroForm');
+    const addLivroBtn = document.getElementById('addLivronBtn');
+    const modalTitleLivro = document.getElementById('modalTitleLivro');
+    let editLivroId = null;
 
     // Função para carregar livros
     const loadLivro = async () => {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tableBody = document.querySelector('#LivroTable tbody');
         tableBody.innerHTML = '';
 
-        plantations.forEach(livro  => {
+       livros.forEach(livro  => {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${livro.name}</td>
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('description').value = livro.description;
         await loadClientes(livro.responsible ? livro.responsible._id : null);
 
-        plantationModal.style.display = 'block';
+        livroModal.style.display = 'block';
     };
 
     // Abrir modal para adicionar novo livro
@@ -139,9 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (editLivroId) {
-            await updatePlantation(editLivroId, livroData);
+            await updateLivro(editLivroId, livroData);
         } else {
-            await addPlantation(livroData);
+            await addLivro(livroData);
         }
 
         livroModal.style.display = 'none';
